@@ -1,10 +1,10 @@
-package com.example.heartrate_monitor.db
+package com.example.heartrate_monitor.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.heartrate_monitor.db.HeartrateRepository
 import com.example.heartrate_monitor.db.model.ExerciseModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

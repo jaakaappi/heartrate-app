@@ -55,6 +55,11 @@ android {
 }
 
 dependencies {
+
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation("androidx.compose.runtime:runtime-livedata:$compose_ui_version")
+    implementation "com.github.weliem:blessed-android-coroutines:0.3.3"
+
     implementation("androidx.room:room-runtime:$room_version")
     implementation("androidx.room:room-ktx:$room_version")
     annotationProcessor("androidx.room:room-compiler:$room_version")

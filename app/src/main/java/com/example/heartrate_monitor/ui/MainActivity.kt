@@ -1,4 +1,4 @@
-package com.example.heartrate_monitor
+package com.example.heartrate_monitor.ui
 
 import android.content.Context
 import android.content.Intent
@@ -15,11 +15,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.heartrate_monitor.db.ExerciseListViewmodel
+import com.example.heartrate_monitor.ui.ExerciseListViewmodel
 import com.example.heartrate_monitor.service.HeartrateService
 import com.example.heartrate_monitor.ui.theme.HeartratemonitorTheme
 import dagger.hilt.android.AndroidEntryPoint
@@ -30,7 +31,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContent {
+        setContent() {
             HeartratemonitorTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
@@ -40,8 +41,13 @@ class MainActivity : ComponentActivity() {
                         backgroundColor = MaterialTheme.colors.surface,
                         modifier = Modifier.padding(all = 12.dp)
                     ) {
-                        ExerciseList(this)
+                        Column {
+                            DeviceConnectionView()
+                            LiveReadingsView()
+                            //ExerciseList(LocalContext.current)
+                        }
                     }
+
                 }
             }
         }

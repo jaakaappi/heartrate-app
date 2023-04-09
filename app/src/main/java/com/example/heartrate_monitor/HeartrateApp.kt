@@ -5,6 +5,7 @@ import android.content.Context
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
+import com.example.heartrate_monitor.ble.BluetoothHandler
 import com.example.heartrate_monitor.db.ExerciseDao
 import com.example.heartrate_monitor.db.HeartrateDatabase
 import com.example.heartrate_monitor.db.HeartrateRepository
@@ -45,7 +46,7 @@ class HeartrateApp : Application() {
 
 @Module
 @InstallIn(SingletonComponent::class)
-object DatabaseModule {
+object AppModule {
     @Provides
     @Singleton
     fun provideDatabase(
@@ -66,6 +67,11 @@ object DatabaseModule {
     ): HeartrateRepository = HeartrateRepository(
         exerciseDao
     )
+
+    @Provides
+    @Singleton
+    fun provideBluetoothHandler(@ApplicationContext context: Context): BluetoothHandler =
+        BluetoothHandler(context)
 }
 
 class ExerciseCallback(

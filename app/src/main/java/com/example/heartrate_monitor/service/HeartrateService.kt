@@ -7,7 +7,7 @@ import android.content.pm.ServiceInfo
 import android.os.IBinder
 import android.util.Log
 import androidx.core.app.NotificationManagerCompat
-import com.example.heartrate_monitor.MainActivity
+import com.example.heartrate_monitor.ui.MainActivity
 import com.example.heartrate_monitor.db.HeartrateRepository
 import com.example.heartrate_monitor.db.model.ExerciseModel
 import dagger.hilt.android.AndroidEntryPoint
