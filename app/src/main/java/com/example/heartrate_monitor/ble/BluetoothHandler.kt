@@ -1,5 +1,6 @@
 package com.example.heartrate_monitor.ble
 
+import android.Manifest
 import android.content.Context
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
@@ -24,8 +25,6 @@ class BluetoothHandler(context: Context) {
     private val HRS_SERVICE_UUID: UUID = UUID.fromString("0000180D-0000-1000-8000-00805f9b34fb")
     private val HRS_MEASUREMENT_CHARACTERISTIC_UUID: UUID =
         UUID.fromString("00002A37-0000-1000-8000-00805f9b34fb")
-
-    // todo add spinner
 
     fun startScanning() {
         scanning.postValue(true)
